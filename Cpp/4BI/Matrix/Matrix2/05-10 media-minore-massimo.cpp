@@ -2,12 +2,14 @@
 using namespace std;
 
 int main(){
-    int m,n,maxx=0,maxy=0;
+    int m, n maxx=0, maxy=0;
+    
     cout<<"Input a max line number: ";
     cin>>n;
     cout<<"Input a max column number: ";
     cin>>m;
     cout<<endl;
+    
     float Media=0;
     float A[m][n];
     for (int x=0; x<m; x++){
