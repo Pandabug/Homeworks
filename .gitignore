@@ -1,1 +1,8 @@
+#Visual Studio Code
 .vscode
+
+#C++ exe
+*.exe
+
+#C++ txt files
+Cpp/**/*.txt
