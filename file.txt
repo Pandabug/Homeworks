@@ -1,0 +1,6 @@
+aab 84
+aca 18
+aaa 19
+afa 24
+aaf 15
+
