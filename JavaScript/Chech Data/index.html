@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="principal-data">
+            <div class="box">
+                <h2>Surname: </h2>
+                <input type="text" id="surname" placeholder="Surname"/>
+            </div>
+            <div class="box">
+                <h2>Name: </h2>
+                <input type="text" id="name" placeholder="Name"/>
+            </div>
+        </div>
+
+        <div class="check-box">
+            <h2>Sesso: </h2>
+            <input type="checkbox" id="maschio" /><h3>Maschio</h3>
+            <input type="checkbox" id="femmina" /><h3>Femmina</h3>
+        </div>
+
+        <div class="additional-information">
+            <div class="box">
+                <h2>Data gg/mm/aa: </h2>
+                <input type="text" id="data" placeholder="gg/mm/aa"/>
+            </div>
+            <div class="box">
+                <h2>Codice Fiscale: </h2>
+                <input type="text" id="cod_fiscale" placeholder="AAAAAAAAAAAAAAAA"/>
+            </div>
+            <div class="box">
+                <h2>Citta provenienza: </h2>
+                <select id="provenienza">
+                    <option value="0"></option>
+                    <option value="1">Roma</option>
+                    <option value="2">Venezia</option>
+                    <option value="3">Napoli</option>
+                    <option value="4">Sardegna</option>
+                </select>
+            </div>
+        </div>
+        <div class="clear-btn">
+            <button onclick="checkData()">Check data</button>
+        </div>
+    </div>
+</body>
+    <script src="script.js"></script>
+</html>

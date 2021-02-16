@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/106816be35.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="content">
+        <form>
+            <h2>A trip on Italy:</h2>
+            <div class="box">
+                <select id="scelta" onmouseup="caricamentoImmagine()">
+                    <option value="0">--Select--</option>
+                    <option value="1">Roma</option>
+                    <option value="2">Venezia</option>
+                    <option value="3">Sardegna</option>
+                    <option value="4">Sicilia</option>
+                    <option value="5">Firenze</option>
+                    <option value="6">Napoli</option>
+                </select>
+            </div>
+        </form>
+
+        <div class="images">
+            <img src="" alt="" id="immagine">
+            <div class="description">
+                <p id="descrizione"></p>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

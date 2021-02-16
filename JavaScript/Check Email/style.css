@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #587591;
+}
+.wrapper{
+    margin: 20px;
+    width: 250px;
+    height: 350px;
+    border-radius: 50px;
+    display: block;
+    padding: 30px;
+    box-shadow: 0 0 10px 4px #fff;
+}
+.wrapper h2{
+    color: #fff;
+    margin: 0 0 60px 5px;
+}
+.block{
+    display: flex;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.wrapper input{
+    background: transparent;
+    color: #fff;
+    height: 30px;
+    width: 100%;
+    margin: 15px 0;
+    border: none;
+    border-bottom: 2px solid #2f2f2f;
+}
+.wrapper .block h3{
+    color: rgb(175, 175, 175);
+    z-index: -1;
+    pointer-events: none;
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    transition: .4s;
+}
+.wrapper .block input:focus + h3,
+.wrapper .block input:valid + h3{
+    font-size: 15px;
+    transform: translateY(-25px);
+    color: greenyellow;
+    left: 0;
+}
+.wrapper button{
+    cursor: pointer;
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    background: transparent;
+    border: 2px solid snow;
+    font-size: 22px;
+    color: #fff;
+    background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+    background-size: 200%;
+    transition: .5s;
+}
+.wrapper button:hover{
+    background-position: right;
+}
+@media screen and (max-width: 270px){
+    .wrapper{
+        display: none;
+    }
+}
+
+
+
+.ball{
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 0 0 20px .5px rgba(255, 255, 255, 0.316);
+    z-index: -2;
+}
+.b1{
+    left: 10%;
+    animation: move 4s infinite linear;
+}
+.b2{
+    right: 10%;
+    animation: move 7s infinite linear;
+}
+@keyframes move{
+    0%{
+        opacity: 0;
+        width: 30px;
+        height: 30px;
+        top: 5%;
+    }
+    50%{
+        opacity: 1;
+        height: 250px;
+        width: 250px;
+        top: 50%;
+    }
+    100%{
+        opacity: 0;
+        height: 30px;
+        width: 30px;
+        top: 5%;
+    }
+}
+@media screen and (max-width: 800px){
+    .ball{
+        display: none;
+    }
+}
