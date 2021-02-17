@@ -32,6 +32,7 @@ class Shop{
                 CurrentProduct++;
             }
         }
+        //search a product cod and return her position
         float searchProduct(string SearchCod){
             int position = -1;
             
@@ -43,6 +44,7 @@ class Shop{
                 }
             return position;
         }
+        //change quantity of the product with replacement of the old quantity
         void ChangeQuantity(){
             string SearchCod;
 
@@ -65,6 +67,7 @@ class Shop{
                 SingleProduct[position].ProductQuantity = newQuantity;
             }
         }
+        //to add new product
         void addProduct(string newCod){
             SingleProduct[CurrentProduct].ProductCod = newCod;
             cout<<"Name: ";
@@ -75,15 +78,17 @@ class Shop{
             cin>>SingleProduct[CurrentProduct].ProductPrice;
             CurrentProduct++;
         }
+        //print the list of the products
         void printData(){
-            order();
+            sort();
             for (int i=0; i<CurrentProduct; i++)
                 cout<<"Cod: " <<SingleProduct[i].ProductCod <<endl
                     <<"Name: " <<SingleProduct[i].ProductName <<endl
                     <<"Quantity: " <<SingleProduct[i].ProductQuantity <<endl
                     <<"Price: "  <<SingleProduct[i].ProductPrice <<endl <<endl;
         }
-        void order(){
+        //sort the list of items befor print
+        void sort(){
             Products tmp;
             for (int i=0; i<CurrentProduct-1; i++)
                 for (int j=i+1; j<CurrentProduct; j++)
@@ -93,6 +98,7 @@ class Shop{
                         SingleProduct[j] = tmp;
                     }
         }
+        //delete item from the list of product
         void deleteProduct(){
             string SearchCod;
 
@@ -116,6 +122,7 @@ int main(){
 
     int option;
     do{
+        //menu
         cout<<endl <<"Menu:" <<endl
             <<" - 0 EXIT." <<endl
             <<" - 1 To chenge quantity." <<endl
