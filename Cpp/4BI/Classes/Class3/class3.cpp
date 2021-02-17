@@ -25,7 +25,10 @@ class Shop{
             MyFile.open("FileProducts.txt", ios::in);
 
             while (!MyFile.eof()){
-                MyFile >>SingleProduct[CurrentProduct].ProductCod >>SingleProduct[CurrentProduct].ProductName >>SingleProduct[CurrentProduct].ProductQuantity >>SingleProduct[CurrentProduct].ProductPrice;
+                MyFile >>SingleProduct[CurrentProduct].ProductCod 
+                       >>SingleProduct[CurrentProduct].ProductName 
+                       >>SingleProduct[CurrentProduct].ProductQuantity 
+                       >>SingleProduct[CurrentProduct].ProductPrice;
                 CurrentProduct++;
             }
         }
@@ -73,13 +76,37 @@ class Shop{
             CurrentProduct++;
         }
         void printData(){
+            order();
             for (int i=0; i<CurrentProduct; i++)
                 cout<<"Cod: " <<SingleProduct[i].ProductCod <<endl
                     <<"Name: " <<SingleProduct[i].ProductName <<endl
                     <<"Quantity: " <<SingleProduct[i].ProductQuantity <<endl
                     <<"Price: "  <<SingleProduct[i].ProductPrice <<endl <<endl;
         }
-        // void order(){}
+        void order(){
+            Products tmp;
+            for (int i=0; i<CurrentProduct-1; i++)
+                for (int j=i+1; j<CurrentProduct; j++)
+                    if(SingleProduct[i].ProductCod > SingleProduct[j].ProductCod){
+                        tmp = SingleProduct[i];
+                        SingleProduct[i] = SingleProduct[j];
+                        SingleProduct[j] = tmp;
+                    }
+        }
+        void deleteProduct(){
+            string SearchCod;
+
+            cout<<"Input a cod of the product: ";
+            cin>>SearchCod;
+            int position = searchProduct(SearchCod);
+            if (position == -1) cout<<"Cod not find." <<endl;
+            else{
+                for (int i=position; i<CurrentProduct; i++)
+                    SingleProduct[i] = SingleProduct[i+1];
+                CurrentProduct--;
+                    
+            }
+        }
 };
 
 int main(){
@@ -93,6 +120,7 @@ int main(){
             <<" - 0 EXIT." <<endl
             <<" - 1 To chenge quantity." <<endl
             <<" - 2 Print the lsit." <<endl
+            <<" - 3 To delete from the list." <<endl
             <<"Option: ";
         cin>>option;
         cout<<endl;
@@ -105,6 +133,9 @@ int main(){
             break;
             case 2:
                 newShop.printData();
+            break;
+            case 3:
+                newShop.deleteProduct();
             break;
             default:
                 cout<<"Retry..." <<endl;
