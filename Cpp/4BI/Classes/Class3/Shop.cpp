@@ -5,7 +5,7 @@
 using namespace std;
 
 struct Products{
-    string ProductCod;
+    string ProductCode;
     string ProductName;
     int ProductQuantity;
     float ProductPrice;
@@ -24,7 +24,7 @@ class Shop{
             MyFile.open("FileProducts.txt", ios::in);
 
             while (!MyFile.eof()){
-                MyFile >>newProduct.ProductCod 
+                MyFile >>newProduct.ProductCode 
                        >>newProduct.ProductName 
                        >>newProduct.ProductQuantity 
                        >>newProduct.ProductPrice;
@@ -32,13 +32,21 @@ class Shop{
             }
             MyFile.close();
         }
-        //search a product cod and return her position
-        float searchProduct(string SearchCod){
-            int position = -1;
+        string getCode(){
+            string SearchCode;
             
+            cout<<"Input a cod of the product: ";
+            cin>>SearchCode;
+
+            return SearchCode;
+        }
+        //search a product cod and return her position
+        float searchProduct(){
+            int position = -1;
+            string searchCode = getCode();
 
             for(int i=0; i<SingleProduct.size(); i++)
-                if (SingleProduct[i].ProductCod == SearchCod){
+                if (SingleProduct[i].ProductCode == searchCode){
                     position = i;
                     break;
                 }
@@ -46,16 +54,12 @@ class Shop{
         }
         //change quantity of the product with replacement of the old quantity
         void ChangeQuantity(){
-            string SearchCod;
-
-            cout<<"Input a cod of the product: ";
-            cin>>SearchCod;
-            int position = searchProduct(SearchCod);
+            int position = searchProduct();
             if (position == -1){
                 int option;
                 cout<<"Cod not find, u want to add it to this product list? (no/0 yes/1): ";
                 cin>>option;
-                if (option == 1) addProduct(SearchCod);
+                if (option == 1) addProduct();
                 else cout<<"Cod not find."<<endl;
             }
             else{
@@ -68,8 +72,9 @@ class Shop{
             }
         }
         //to add new product
-        void addProduct(string newCod){
-            newProduct.ProductCod = newCod;
+        void addProduct(){
+            string SearchCode = getCode();
+            newProduct.ProductCode = SearchCode;
             cout<<"Name: ";
             cin>>newProduct.ProductName;
             cout<<"Quantity: ";
@@ -82,7 +87,7 @@ class Shop{
         void printData(){
             sort();
             for (int i=0; i<SingleProduct.size(); i++)
-                cout<<"Cod: " <<SingleProduct[i].ProductCod <<endl
+                cout<<"Cod: " <<SingleProduct[i].ProductCode <<endl
                     <<"Name: " <<SingleProduct[i].ProductName <<endl
                     <<"Quantity: " <<SingleProduct[i].ProductQuantity <<endl
                     <<"Price: "  <<SingleProduct[i].ProductPrice <<endl <<endl;
@@ -92,7 +97,7 @@ class Shop{
             Products tmp;
             for (int i=0; i<SingleProduct.size()-1; i++)
                 for (int j=i+1; j<SingleProduct.size(); j++)
-                    if(SingleProduct[i].ProductCod > SingleProduct[j].ProductCod){
+                    if(SingleProduct[i].ProductCode > SingleProduct[j].ProductCode){
                         tmp = SingleProduct[i];
                         SingleProduct[i] = SingleProduct[j];
                         SingleProduct[j] = tmp;
@@ -100,16 +105,12 @@ class Shop{
         }
         //delete item from the list of product
         void deleteProduct(){
-            string SearchCod;
-
-            cout<<"Input a cod of the product: ";
-            cin>>SearchCod;
-            int position = searchProduct(SearchCod);
+            int position = searchProduct();
             if (position == -1) cout<<"Cod not find." <<endl;
             else{
                 for (int i=position; i<SingleProduct.size(); i++)
                     SingleProduct.erase(SingleProduct.begin() + position);
-                    
+                cout<<"Code deleted successfully." <<endl;
             }
         }
 };
@@ -126,7 +127,8 @@ int main(){
             <<" - 0 EXIT." <<endl
             <<" - 1 To chenge quantity." <<endl
             <<" - 2 Print the lsit." <<endl
-            <<" - 3 To delete from the list." <<endl
+            <<" - 3 Add new cod to the list." <<endl
+            <<" - 4 To delete from the list." <<endl
             <<"Option: ";
         cin>>option;
         cout<<endl;
@@ -141,6 +143,9 @@ int main(){
                 newShop.printData();
             break;
             case 3:
+                newShop.addProduct();
+            break;
+            case 4:
                 newShop.deleteProduct();
             break;
             default:
