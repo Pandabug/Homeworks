@@ -1,10 +1,8 @@
 #include <iostream>
 #include <string>
+#include <vector>
 #include <fstream>
 using namespace std;
-
-const int MaxProduct = 100;
-int CurrentProduct = 0;
 
 struct Products{
     string ProductCod;
@@ -14,7 +12,8 @@ struct Products{
 };
 
 class Shop{
-    Products SingleProduct[MaxProduct];
+    vector <Products> SingleProduct;
+    Products newProduct;
     
     public:
         void input(){
@@ -25,11 +24,11 @@ class Shop{
             MyFile.open("FileProducts.txt", ios::in);
 
             while (!MyFile.eof()){
-                MyFile >>SingleProduct[CurrentProduct].ProductCod 
-                       >>SingleProduct[CurrentProduct].ProductName 
-                       >>SingleProduct[CurrentProduct].ProductQuantity 
-                       >>SingleProduct[CurrentProduct].ProductPrice;
-                CurrentProduct++;
+                MyFile >>newProduct.ProductCod 
+                       >>newProduct.ProductName 
+                       >>newProduct.ProductQuantity 
+                       >>newProduct.ProductPrice;
+                SingleProduct.push_back(newProduct);
             }
             MyFile.close();
         }
@@ -38,7 +37,7 @@ class Shop{
             int position = -1;
             
 
-            for(int i=0; i<CurrentProduct; i++)
+            for(int i=0; i<SingleProduct.size(); i++)
                 if (SingleProduct[i].ProductCod == SearchCod){
                     position = i;
                     break;
@@ -70,19 +69,19 @@ class Shop{
         }
         //to add new product
         void addProduct(string newCod){
-            SingleProduct[CurrentProduct].ProductCod = newCod;
+            newProduct.ProductCod = newCod;
             cout<<"Name: ";
-            cin>>SingleProduct[CurrentProduct].ProductName;
+            cin>>newProduct.ProductName;
             cout<<"Quantity: ";
-            cin>>SingleProduct[CurrentProduct].ProductQuantity;
+            cin>>newProduct.ProductQuantity;
             cout<<"Price: ";
-            cin>>SingleProduct[CurrentProduct].ProductPrice;
-            CurrentProduct++;
+            cin>>newProduct.ProductPrice;
+            SingleProduct.push_back(newProduct);
         }
         //print the list of the products
         void printData(){
             sort();
-            for (int i=0; i<CurrentProduct; i++)
+            for (int i=0; i<SingleProduct.size(); i++)
                 cout<<"Cod: " <<SingleProduct[i].ProductCod <<endl
                     <<"Name: " <<SingleProduct[i].ProductName <<endl
                     <<"Quantity: " <<SingleProduct[i].ProductQuantity <<endl
@@ -91,8 +90,8 @@ class Shop{
         //sort the list of items befor print
         void sort(){
             Products tmp;
-            for (int i=0; i<CurrentProduct-1; i++)
-                for (int j=i+1; j<CurrentProduct; j++)
+            for (int i=0; i<SingleProduct.size()-1; i++)
+                for (int j=i+1; j<SingleProduct.size(); j++)
                     if(SingleProduct[i].ProductCod > SingleProduct[j].ProductCod){
                         tmp = SingleProduct[i];
                         SingleProduct[i] = SingleProduct[j];
@@ -108,9 +107,8 @@ class Shop{
             int position = searchProduct(SearchCod);
             if (position == -1) cout<<"Cod not find." <<endl;
             else{
-                for (int i=position; i<CurrentProduct; i++)
-                    SingleProduct[i] = SingleProduct[i+1];
-                CurrentProduct--;
+                for (int i=position; i<SingleProduct.size(); i++)
+                    SingleProduct.erase(SingleProduct.begin() + position);
                     
             }
         }

@@ -23,7 +23,7 @@ function checkData(){
 
     //check data
     if (data == "") window.alert("U forgot to input a Date");
-    else if (gg <= 1 || gg > 32 && mm <= 1 || mm > 13 && aa <= 1 || aa > 2021)
+    else if (gg <= 1 || gg > 32 && mm <= 1 || mm > 13 && aa > 2021)
             window.alert("Date u input is incorrect");
 
     //check cod-fiscale
