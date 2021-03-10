@@ -3,92 +3,103 @@
 #include <vector>
 using namespace std;
 
-struct Grounds{
-    string code;
-    float extension;
-    float building_percentage;
-    float income_sqm;
-};
-
 class Ground{
-    vector<Grounds> singleGround;
-    Grounds newGround;
-    float media = 0;
+    string newCode;
+    float newExtension;
+    float newBuilding_percentage;
+    float newIncome_sqm;
 
     public:
-        void input(){
-            cout<<"Input code : ";
-                cin>>newGround.code;
-            cout<<"Input extension : ";
-                cin>>newGround.extension;
-            cout<<"Input building percentage : ";
-                cin>>newGround.building_percentage;
-            cout<<"Input income sqm : ";
-                cin>>newGround.income_sqm;
-                    media += newGround.income_sqm;
-
-            singleGround.push_back(newGround);
+        Ground(string code, float extension, float building_percentage, float income_sqm){
+            newCode = code;
+            newExtension = extension;
+            newBuilding_percentage = building_percentage;
+            newIncome_sqm = income_sqm;
         }
-        int searchGround(){
-            int position = -1;
-            string searchGroundName;
-
-            cout<<"Input a thain to search: ";
-            cin>>searchGroundName;
-
-            for (int i=0; i<singleGround.size(); i++)
-                if (singleGround[i].code == searchGroundName){
-                    position = i;
-                    break;
-                }
-                
-            return position;
+        string getCode(){
+            return newCode;
         }
-        void maxSqm(){
-            float extensionEl = 0;
-            int position;
-
-            for (int i=0; i<singleGround.size(); i++)
-                if(singleGround[i].extension > extensionEl){
-                    extensionEl = singleGround[i].extension;
-                    position = i;
-                }
-
-            cout<<endl <<"Ground: " <<singleGround[position].code <<" with " <<singleGround[position].extension <<" sqm." <<endl <<endl;
+        float groundAverage(){
+            return newExtension * newIncome_sqm;
         }
-        void averageIncome(){
-            media /= singleGround.size();
+        float ground_sqm(){
+            return newExtension/100 * newBuilding_percentage;
+        }
+        void print(){
+            cout<<"Code : " <<newCode <<endl
+                <<"Extension : " <<newExtension <<endl
+                <<"Building percentage : " <<newBuilding_percentage <<endl
+                <<"Income sqm : " <<newIncome_sqm <<endl <<endl;
 
-            cout<<"The Grounds rent average is equal to: " <<media <<endl;
         }
 };
 
 int main(){
-    Ground newGround;
-
-    newGround.input();
+    vector<Ground> singleGround;
 
     int option;
     do{
         cout<<"Menu:" <<endl
             <<" - 0 EXIT." <<endl
             <<" - 1 Input a new Ground." <<endl
-            <<" - 2 Max of sqm." <<endl
-            <<" - 3 For average income." <<endl
+            <<" - 2 Gound extension." <<endl
+            <<" - 3 Ground percentage." <<endl
+            <<" - 4 Ground info." <<endl
             <<"Option: ";
             cin>>option;
+            cout<<endl;
         switch (option){
             case 0:
                 cout<<"EXIT" <<endl;
             break;
-            case 1:
-                newGround.input();
+            case 1:{
+                string code;
+                float extension, building_percentage, income_sqm;
+
+                cout<<"Input code : ";
+                    cin>>code;
+                cout<<"Input extension : ";
+                    cin>>extension;
+                cout<<"Input building percentage : ";
+                    cin>>building_percentage;
+                cout<<"Input income sqm : ";
+                    cin>>income_sqm;
+
+                singleGround.push_back(Ground(code, extension, building_percentage, income_sqm));
+            }
             break;
-            case 2:
-                newGround.maxSqm();
+            case 2:{
+                string searchGroundName;
+
+                cout<<"Input a thain to search: ";
+                cin>>searchGroundName;
+
+                for (int i=0; i<singleGround.size(); i++)
+                    if (singleGround[i].getCode() == searchGroundName) 
+                        cout<<"The Grounds rent average is equal to: " <<singleGround[i].groundAverage() <<endl;
+            }
             break;
-            case 3:
-                newGround.averageIncome();
+            case 3:{
+                string searchGroundName;
+
+                cout<<"Input a thain to search: ";
+                cin>>searchGroundName;
+
+                for (int i=0; i<singleGround.size(); i++)
+                    if (singleGround[i].getCode() == searchGroundName) 
+                        cout<<"The building percentage of the land is " <<singleGround[i].ground_sqm() <<"%" <<endl;
+            }
+            break;
+            case 4:{
+                string searchGroundName;
+
+                cout<<"Input a thain to search: ";
+                cin>>searchGroundName;
+
+                for (int i=0; i<singleGround.size(); i++)
+                    if (singleGround[i].getCode() == searchGroundName) 
+                        singleGround[i].print();
+            }
             break;
             default:
                 cout<<"Retry..." <<endl;
