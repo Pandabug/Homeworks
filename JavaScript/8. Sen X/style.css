@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    background: linear-gradient(15deg, rgb(21, 102, 214) 1%, #eee 100%);
+}
+
+.container{
+    width: 300px;
+}
+.container input{
+    width: 100%;
+}
+
+.outputs{
+    line-height: 50px;
+    font-size: 30px;
+    padding: 10px;
+}
