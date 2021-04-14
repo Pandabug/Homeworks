@@ -4,11 +4,11 @@
 }
 body{
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
+    justify-content: center;
     flex-direction: column;
-    background: linear-gradient(15deg, rgb(21, 102, 214) 1%, #eee 100%);
+    height: 100vh;
+    background: linear-gradient(35deg, rgb(41, 175, 160) 1%, rgb(29, 21, 136) 100%);
 }
 
 .container{
