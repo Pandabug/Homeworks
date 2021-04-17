@@ -1,12 +1,12 @@
 var arrayPrimaryNumbers = [];
 
 function getPrimaryNumber(){
-    var number, checkNumber, cont = 0;
+    var number, cont = 0;
     
     number = parseInt(prompt("Input number: "));
 
     for (var i=2; i<number; i++)
-        if ((checkNumber % i) == 0){
+        if ((number % i) == 0){
             cont++;
             break;
         }
