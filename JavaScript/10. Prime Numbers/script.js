@@ -1,4 +1,4 @@
-var arrayPrimaryNumbers = [];
+var arrayPrimeNumbers = [];
 
 function getPrimaryNumber(){
     var number, cont = 0;
