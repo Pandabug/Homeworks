@@ -43,7 +43,8 @@ class pila{
             if (head == NULL) cout<<"Non ci sono autovetture disponibili." <<endl;
             else{
                 cout<<"ELENCO AUTOVETTTURE DISPONIBILI" <<endl;
-                for (p=head; p!=NULL; p=p->next) cout<<p->target <<"\t" <<p->cil <<endl;
+                for (p=head; p!=NULL; p=p->next) 
+                    cout<<p->target <<"\t\t" <<p->cil <<endl;
             }
         }  
         ~pila(){
@@ -59,29 +60,33 @@ class pila{
 
 int main(){
     pila garage;
-    int optin;
+    int option;
 
-    do{
+    do {
         cout<<"Menu:" <<endl
             <<" - 0 EXIT" <<endl
             <<" - 1 Input" <<endl
             <<" - 2 Delete" <<endl
             <<" - 3 Print" <<endl
             <<"Option: ";
-        switch (optin){
+        cin>>option;
+        cout<<endl;
+        switch (option){
             case 0:
-                garage.push();
+                cout<<"EXIT" <<endl;
             break;
             case 1:
-                garage.pop();
+                garage.push();
             break;
             case 2:
+                garage.pop();
+            break;
+            case 3:
                 garage.print();
             break;
             default:
                 cout<<"Retry..." <<endl;
             break;
         }
-    } while (optin != 0);
-
+    } while (option != 0);
 }

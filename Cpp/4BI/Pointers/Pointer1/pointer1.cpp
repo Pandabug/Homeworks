@@ -44,7 +44,7 @@ class List{
             nome *name1, *name2;
             string nameSearch;
 
-            cout<<"Input name to search: " <<endl;
+            cout<<"Input name to search: ";
             cin>>nameSearch;
 
             name1 = first;
@@ -57,21 +57,20 @@ class List{
             else cout<<"Name not find." <<endl;
         }
         void print(){
-            nome *p;
+            nome *position;
             
             if (first->next->next == NULL) cout<<"No one are in class." <<endl;
-            else 
-                for (p=first->next; p->next!=NULL; p=p->next)
-                    cout<<"Name: " <<p->name <<endl
-                        <<"Points: " <<p->points <<endl;
+            else for (position=first->next; position->next!=NULL; position=position->next)
+                    cout<<"Name: " <<position->name <<endl
+                        <<"Points: " <<position->points <<endl <<endl;
         }
         ~List(){
-            nome *p;
+            nome *position;
 
             while (first != NULL){
-                p = first;
+                position = first;
                 first = first->next;
-                delete(p);
+                delete(position);
             }
         }
 };
@@ -81,13 +80,14 @@ int main(){
 
     int option;
     do{
-        cout<<"Menu:" <<endl
+        cout<<endl <<"Menu:" <<endl
             <<" - 0 EXIT" <<endl
             <<" - 1 Input" <<endl
             <<" - 2 Delete" <<endl
             <<" - 3 Print" <<endl
             <<"Option: ";
         cin>>option;
+        cout<<endl;
         switch (option){
             case 0:
                 cout<<"EXIT" <<endl;
