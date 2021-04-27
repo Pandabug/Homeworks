@@ -59,6 +59,17 @@ class coda{
             }
             cout<<endl;
         }
+        void extraPush(){
+            paziente *p;
+
+            p = new(paziente);
+            cout<<"Input name: ";
+            cin>>p->name;
+            p -> num = num++;
+            cout<<"Patient " <<p->name <<" number " <<p->num <<endl <<endl;
+            p -> next = head;
+            head = p;
+        }
         ~coda(){
             paziente *p;
 
@@ -78,8 +89,9 @@ int main(){
         cout<<"Menu:" <<endl
             <<" - 0 EXIT" <<endl
             <<" - 1 Input" <<endl
-            <<" - 2 Delete" <<endl
-            <<" - 3 Print" <<endl
+            <<" - 2 Extra input" <<endl
+            <<" - 3 Delete" <<endl
+            <<" - 4 Print" <<endl
             <<"Option: ";
         cin>>option;
         cout<<endl;
@@ -92,9 +104,12 @@ int main(){
                 studio.push();
             break;
             case 2:
-                studio.pop();
+                studio.extraPush();
             break;
             case 3:
+                studio.pop();
+            break;
+            case 4:
                 studio.print();
             break;
             default:
@@ -103,4 +118,3 @@ int main(){
         }
     } while (option != 0);
 }
-
