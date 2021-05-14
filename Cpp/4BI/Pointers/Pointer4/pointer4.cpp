@@ -44,7 +44,7 @@ class tail{
             list *pp;
             int get_name_to_delete;
 
-            cout<<"Input name to delete form the list: ";
+            cout<<"Input code to delete form the list: ";
             cin>>get_name_to_delete;
 
             for(list* i=head; i!=NULL; i=i->next){
@@ -55,18 +55,20 @@ class tail{
                 pp = i;
             }
 
-            if (p != NULL){
-                if (head == NULL)
+            if(p == NULL)
+                cout<<"Code doesn't exist." <<endl;
+            else {
+                if(head == NULL)
                     cout<<"There are not anything to do in the list." <<endl;
-                else{
+                else if(p != head)
                     pp->next = p->next;
-                    
-                    if (p == NULL)
-                        end = NULL;
-                    delete p;
-                }
-            } else {
-                cout<<"Name doesn't exist." <<endl;
+                else
+                    head = p->next;
+                
+                if (p == NULL)
+                    end = NULL;
+                
+                delete p;
             }
         }
         void print(){
