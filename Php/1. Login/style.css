@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background: rgb(36, 36, 204);
+}
+nav a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#login{
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#login form input{
+    border: none;
+    border-bottom: 1px solid black;
+}
+#login form button{
+    padding: 5px 10px;
+    border-radius: 10px;
+    background: lightblue;
+    border: 1px solid #000;
+}
