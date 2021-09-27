@@ -34,7 +34,8 @@ body{
     padding: 30px 0;
     border-radius: 10px;
     text-align: center;
-    background: lightblue;
+    background: rgb(34, 45, 48);
+    color: #fff;
 }
 .profile-div img{
     width: 70px;
