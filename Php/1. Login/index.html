@@ -18,17 +18,20 @@
         <h1>AUTENTIFICAZIONE</h1>
 
         <form action="./src/index.php" name="autenticazione" method="POST">
-            Insert your Credentials
+            <h3>Insert your Credentials</h3>
+
+            <input type="text" name="usernameLabel" placeholder="Username" />
             <br />
-            Email:
-            <input type="text" value='ivan' name="usernameLabel"  tabindex="1"/>
-            <br />
-            Password:
-            <input type="password" name="passwordLabel" value="password" />
+            <input type="password" name="passwordLabel" placeholder="Password" />
             <br />
 
-            <button name="btn_accedi" value="Accedi">Accedi</button>
-            <button name="btn_annula" value="Annula">Annula</button>
+            <a href="#">Forgot password?</a>
+
+            <div class="btn-container">
+                <button value="Accedi">ACEDI</button>
+                <button value="Annula">ANULLA</button>
+            </div>
+            <!-- <button class="btn-signup">Registrati</button> -->
         </form>
     </section>
 </body>
