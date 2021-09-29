@@ -37,15 +37,18 @@
         if ($check){
             echo "<div class='profile-div'>";
                 echo '<img src=\''.$image.'\'><br /><br />';
-                echo "USERNAME: <b>$username</b><br />";
-                echo "PASSWORD: <b>$password</b><br /><br />";
-                // echo "<b>Input new password:</b>";
-                // echo "<input value='new password' id='new_password' /><br /><br />";
-                echo "<p>   $text</p><br />";
+                echo "<div class='profile-info-div'>";
+                    echo "USERNAME: <b>$username</b><br />";
+                    echo "PASSWORD: <b>$password</b><br /><br />";
+                    echo "<p>   $text</p><br />";
+                    echo"</div>";
+                    // echo "<b>Input new password:</b>";
+                    // echo "<input value='new password' id='new_password' /><br /><br />";
             echo"</div>";
         } else {
-            echo"<center>";
-                echo"Nope";
+            echo"<center style='color: white;'>";
+                echo"<h1>Le credenziali da te inserite non sono corrette.</h1>";
+                echo"<h4>Si prega di tornare alla pagina principale.</h4>";
             echo"</center>";
         }
     ?>

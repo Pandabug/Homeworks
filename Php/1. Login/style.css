@@ -17,7 +17,10 @@ nav{
     background: rgb(4, 47, 97);
 }
 nav a{
-    padding: 10px 20px;
+    align-items: center;
+    display: flex;
+    padding: 0 40px;
+    height: 100%;
     border-radius: 10px;
     font-size: 20px;
     color: #fff;
@@ -38,7 +41,6 @@ nav a:hover{
     align-items: center;
     flex-direction: column;
     color: #fff;
-    line-height: 35px;
 }
 #login form{
     width: 19rem;
@@ -59,12 +61,15 @@ nav a:hover{
 #login form input:focus{
     outline-width: 0;
 }
-#login a{
-    margin: 5px 0;
+#login form a{
+    margin: 10px 0;
     text-decoration: none;
     display: flex;
     justify-content: end;
     color: grey;
+}
+#login form a:hover{
+    text-decoration: underline;
 }
 #login form .btn-container{
     display: flex;
