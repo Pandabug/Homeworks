@@ -28,28 +28,38 @@
         $check = false;
         $text = 'Federico Caffe fifth grade student.';
 
-        for ($i=0; $i<2; $i++)
-            if (in_array($username, $storage[$i]) && in_array($password, $storage[$i])){
-                $check = true;
-                break;
-            }
+        if (isset($_POST['reg_user'])){
+            // if ($username != '' && $password != '')
+            //     $storage = array_merge($storage, array($username, $password));
             
-        if ($check){
-            echo "<div class='profile-div'>";
-                echo '<img src=\''.$image.'\'><br /><br />';
-                echo "<div class='profile-info-div'>";
-                    echo "USERNAME: <b>$username</b><br />";
-                    echo "PASSWORD: <b>$password</b><br /><br />";
-                    echo "<p>   $text</p><br />";
-                    echo"</div>";
-                    // echo "<b>Input new password:</b>";
-                    // echo "<input value='new password' id='new_password' /><br /><br />";
-            echo"</div>";
-        } else {
-            echo"<center style='color: white;'>";
-                echo"<h1>Le credenziali da te inserite non sono corrette.</h1>";
-                echo"<h4>Si prega di tornare alla pagina principale.</h4>";
-            echo"</center>";
+            print_r($storage);
+            // var_dump($storage);
+        }
+
+        if (isset($_POST['login'])){
+            for ($i=0; $i<count($storage); $i++)
+                if (in_array($username, $storage[$i]) && in_array($password, $storage[$i])){
+                    $check = true;
+                    break;
+                }
+                
+            if ($check){
+                echo "<div class='profile-div'>";
+                    echo '<img src=\''.$image.'\'><br /><br />';
+                    echo "<div class='profile-info-div'>";
+                        echo "USERNAME: <b>$username</b><br />";
+                        echo "PASSWORD: <b>$password</b><br /><br />";
+                        echo "<p>   $text</p><br />";
+                        echo"</div>";
+                        // echo "<b>Input new password:</b>";
+                        // echo "<input value='new password' id='new_password' /><br /><br />";
+                echo"</div>";
+            } else {
+                echo"<center style='color: white;'>";
+                    echo"<h1>Le credenziali da te inserite non sono corrette.</h1>";
+                    echo"<h4>Si prega di tornare alla pagina principale.</h4>";
+                echo"</center>";
+            }
         }
     ?>
 </body>
