@@ -11,17 +11,6 @@
     <a href="../index.html" class='back-btn'>Back</a>
     
     <?php
-        $storage = array(
-            array(
-                'ivan', 
-                '123456'
-            ),
-            array(
-                'admin', 
-                'admin'
-            ),
-        );
-
         $username = $_POST["usernameLabel"];
         $password = $_POST["passwordLabel"];
         $image = '../assets/avatar.svg';
@@ -29,30 +18,42 @@
         $text = 'Federico Caffe fifth grade student.';
 
         if (isset($_POST['reg_user'])){
-            // if ($username != '' && $password != '')
-            //     $storage = array_merge($storage, array($username, $password));
-            
-            print_r($storage);
-            // var_dump($storage);
+            if ($username != '' && $password != ''){
+                $data = $username.' '.$password."\n";
+                
+                if (is_writable('users.txt')){
+                    $myFile = fopen('users.txt', 'a+') or die("Unable to open file!");
+
+                    if (!$myFile){
+                        echo '<h1>File not found</h1>';
+                    } else {
+                        fwrite($myFile, $data);
+                        echo '<h3>User was correctly created</h3>';
+                    }
+                }
+            }
         }
 
         if (isset($_POST['login'])){
-            for ($i=0; $i<count($storage); $i++)
-                if (in_array($username, $storage[$i]) && in_array($password, $storage[$i])){
+            $myFile = file_get_contents('users.txt');
+            $rows = explode("\n", $myFile);
+
+            foreach ($rows as $row) {
+                $user = explode(" ", $row);
+                if ($user[0] == $username && $user[1] == $password){
                     $check = true;
                     break;
                 }
-                
+            }
+
             if ($check){
                 echo "<div class='profile-div'>";
-                    echo '<img src=\''.$image.'\'><br /><br />';
+                    echo "<img src='$image'><br /><br />";
                     echo "<div class='profile-info-div'>";
                         echo "USERNAME: <b>$username</b><br />";
                         echo "PASSWORD: <b>$password</b><br /><br />";
                         echo "<p>   $text</p><br />";
-                        echo"</div>";
-                        // echo "<b>Input new password:</b>";
-                        // echo "<input value='new password' id='new_password' /><br /><br />";
+                    echo"</div>";
                 echo"</div>";
             } else {
                 echo"<center style='color: white;'>";

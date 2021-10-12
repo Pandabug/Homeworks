@@ -68,8 +68,8 @@ nav a:hover{
 #login form a{
     margin: 10px 0;
     text-decoration: none;
-    display: flex;
-    justify-content: end;
+    display: block;
+    text-align: right;
     color: grey;
 }
 #login form a:hover{
