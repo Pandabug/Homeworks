@@ -20,4 +20,8 @@ public class Quadrato {
     public float calcArea() {
         return (float) this.lato * this.lato;
     }
+
+    public float diagonale() {
+        return (float) Math.sqrt(Math.pow(this.lato, 2) * 2);
+    }
 }
