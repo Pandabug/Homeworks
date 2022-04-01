@@ -3,7 +3,7 @@ USE authentification;
 
 CREATE TABLE hobby (
     id_hobby INT(3) PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(25)
+    hobby_name VARCHAR(25)
 );
 
 CREATE TABLE users (
