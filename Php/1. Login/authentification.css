@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #334;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form{
+    width: 350px;
+    padding: 30px;
+    border: 1px solid #fff;
+    border-radius: 15px;
+    background: #333;
+}
+form h2{
+    color: #fff;
+    text-align: center;
+}
+form hr{
+    margin-bottom: 30px;
+}
+
+form .error-msg{
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    background-color: red;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+form label{
+    color: #fff;
+}
+form input{
+    width: 100%;
+    margin-top: 2px;
+    margin-bottom: 20px;
+    padding: 5px 0;
+    text-indent: 10px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    outline:none;
+}
+form input:focus{
+    border: 1px solid rgb(48, 108, 44);
+}
+
+form .general-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+form .general-info input{
+    margin-bottom: 5px;
+}
+form .general-info .radio-btn input{
+    width: auto;
+    margin-right: 5px;
+    margin-left: 10px;
+}
+form .general-info .radio-btn{
+    display: flex;
+}
+
+form button{
+    cursor: pointer;
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    padding: 10px 0;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border: 1px solid rgb(102, 102, 193);
+    background-color: rgb(39, 39, 90);
+    transition: 1s;
+}
+form button:hover{
+    background-color: rgb(78, 78, 141);
+}
+form a{
+    color: #fff;
+    text-decoration: none;
+}
+form a:hover{
+    text-decoration: underline;
+}

@@ -1,4 +1,0 @@
-admin admin
-ivan 123456
-enrico ciccio
-gamer ciccio123456
