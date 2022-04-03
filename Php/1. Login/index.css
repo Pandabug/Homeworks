@@ -62,3 +62,27 @@ header{
     color: #000;
     font-weight: bold;
 }
+
+.posters{
+    display: flex;
+    margin: 0 20px;
+}
+.hobby_posters{
+    width: 200px;
+    margin: 0 20px;
+    padding: 5px;
+    border-radius: 4px;
+    background-color: #D8D2CB;
+    text-align: center;
+}
+.hobby_posters img{
+    width: 100%;
+    margin: 5px 0;
+}
+
+.all-users{
+    border-radius: 10px;
+    background-color: #D8D2CB;
+    padding: 20px;
+    margin: 20px;
+}
