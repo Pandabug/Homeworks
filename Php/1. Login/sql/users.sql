@@ -21,6 +21,7 @@ CREATE TABLE users (
     surname VARCHAR(25),
     nickname VARCHAR(25),
     email VARCHAR(25),
+    overmin BIT(1),
     password VARCHAR(15),
     genre VARCHAR(25),
     id_hobby_fk INT(3),
