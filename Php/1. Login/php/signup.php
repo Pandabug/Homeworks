@@ -8,6 +8,7 @@
     $nickname = $_POST['nickname'];
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $overmin = $_POST['overmin'];
     $genre = $_POST['genre'];
     $hobby = $_POST['hobby'];
 
@@ -21,7 +22,7 @@
                 // $password = md5($password);
                 $hobby_query = mysqli_query($conn, "SELECT * FROM hobby WHERE hobby_name = '{$hobby}'");
                 $hobby_row = mysqli_fetch_assoc($hobby_query);
-                $query = mysqli_query($conn, "INSERT INTO users (name, surname, nickname, email, password, genre, id_hobby_fk) VALUES ('{$name}', '{$surname}', '{$nickname}', '{$email}', '{$password}', '{$genre}', '{$hobby_row['id_hobby']}')");
+                $query = mysqli_query($conn, "INSERT INTO users (name, surname, nickname, email, password, overmin, genre, id_hobby_fk) VALUES ('{$name}', '{$surname}', '{$nickname}', '{$email}', '{$password}', '{$overmin}', '{$genre}', '{$hobby_row['id_hobby']}')");
 
                 if ($query){
                     $query2 = mysqli_query($conn, "SELECT * FROM users WHERE email = '$email' AND password = '$password'");

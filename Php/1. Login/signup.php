@@ -34,6 +34,9 @@
         <label>Password:</label>
         <input type="password" name="password" placeholder="Password" />
         
+
+        <label>Over 18?</label>
+        <input type="checkbox" name="overmin" />
         
         <div class="general-info">
             <div class="genre">
