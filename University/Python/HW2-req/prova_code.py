@@ -1,0 +1,3 @@
+decode_XKCD_tuple=lambda xkcd_values,k:sorted(map(decode_value,xkcd_values),reverse=True)[:k];decode_value=lambda xkcd:list_of_weights_to_number(xkcd_to_list_of_weights(xkcd));xkcd_to_list_of_weights=lambda xkcd:[int(x)for x in xkcd.replace('1','  1').replace('5', ' 5').split()];list_of_weights_to_number=lambda weigths:sum([n if n>=weigths[-i]or i==0 else-n for i,n in enumerate(weigths[::-1])])
+
+print(decode_XKCD_tuple(['10010010010100511', '100101001051', '500100500101'], k=3))

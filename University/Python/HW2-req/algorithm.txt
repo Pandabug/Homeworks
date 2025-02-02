@@ -1,0 +1,7 @@
+Nel seguente Homework l'idea mia era quella di cominciare dalla terza funzione (xkcd_to_list_of_weights) in cui ci chiedeva di di decodifica un valore nel formato XKCD e torna l'intero corrispondente ('10010010010100511' -> [100, 100, 100, 10, 100, 5, 1, 1,]) nel quale la logica che ho implementato consiste nel controllare se il numero successivo alla x e lo '0' in questo modo ottengo che tutti gli elementi della stringa che non sono seguiti dallo '0' vengono direttamente aggiunti alla lista invece quelli che sono seguiti dallo '0' si sommano nella stringa finché l'elemento che segue e lo '0' e poi viene aggiunto alla lista.
+
+Dopo aver finito la terza funzione ho cominciato a svolgere la quarta (list_of_weights_to_number) funzione in cui dovevo sommare o in alcuni casi sottrarre la lista di interi in cui ho semplicemente controllato che se l'elemento che segue e maggiore di quello precedente allora sottraggo altrimenti sommo.
+
+Nella seconda funzione (decode_value) ho semplicemente richiamato la terza e la quarta funzione essendo una alla fine un unico pezzo do codice spezzato.
+
+Nella prima funzione (decode_XKCD_tuple) ho decodificato / chiamato la seconda funzione (decode_value) per ogni stringa nella lista dopo l'ho ordinata e rigirata di seguito ho fatto un ritorno di valori dal 0 a k (k escluso).
